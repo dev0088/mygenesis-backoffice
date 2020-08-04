@@ -16,3 +16,4 @@ composer.lock
 package-lock.json
 storage/app/public/assets
 /certboat
+/dbdata

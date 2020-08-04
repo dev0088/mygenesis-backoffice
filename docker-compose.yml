@@ -14,8 +14,8 @@ services:
           - mygenesis_mysql_network
     environment:
       MYSQL_DATABASE: forge
-      MYSQL_ROOT_PASSWORD: ""
-      MYSQL_USER: ""
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     volumes:

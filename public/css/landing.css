@@ -1,0 +1,289 @@
+/* Global stuff */
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #3f4652;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+img {
+  height: auto;
+  vertical-align: middle;
+}
+
+h1 {
+  font-weight: 100;
+  font-size: 42px;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px;
+}
+
+.button {
+  border: none;
+  outline: none;
+  background-clip: padding-box;
+  background: rgb(153, 196, 50);
+	color: #fff;
+	line-height: 1;
+	display: inline-block;
+	padding: 16px 20px;
+	border-radius: 8px;
+	cursor: pointer;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: rgba(153, 196, 50, 0.9);
+}
+
+/* Header stuff */
+
+.header {
+  background: #00c3cc;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+}
+
+.header ul {
+  list-style: none;
+}
+
+.header li {
+  display: inline-block;
+  margin-left: 16px;
+}
+
+.header li:first-child {
+  margin-left: 0;
+}
+
+.header li a {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.header li a:hover {
+  color: rgba(255,255,255, 0.8);
+}
+
+input {
+  padding: 8px;
+	color: inherit;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -webkit-appearance: none;
+  border: none;
+	outline: none;
+	padding: 10px 12px;
+	background: #fff;
+	border-radius: 8px;
+	cursor: text;
+}
+
+.header input {
+  margin-left: 16px;
+  background-image: url('http://dev.themaninblue.com/canva/learntocode/images/search-icon.svg');
+  background-repeat: no-repeat;
+  background-position: 6px 6px;
+  padding-left: 32px;
+}
+
+/* Body stuff */
+
+.body-content {
+  display: flex;
+  align-items: center;
+  max-width: 724px;
+  justify-content: space-between;
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+.text-wrapper,
+.phone-wrapper {
+  width: 48%;
+}
+
+.body-intro {
+  font-size: 20px;
+}
+
+.phone-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.phone {
+  position: relative;
+  width: calc(100% - 23px - 23px - 80px);
+}
+
+.phone img {
+  max-width: 100%;
+}
+
+.carousel {
+  position: absolute;
+  left: 6.5%;
+  right: 6.5%;
+  top: 12%;
+  bottom: 12.5%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  list-style: none;
+  white-space: nowrap;
+}
+
+.carousel li {
+  display: inline;
+  margin-right: -0.25em;
+  transition: margin-left 0.6s ease-out;
+}
+
+.carousel.page2 li:first-child {
+  margin-left: -100%;
+}
+
+.carousel.page3 li:first-child {
+  margin-left: -200%;
+}
+
+.carousel.page4 li:first-child {
+  margin-left: -300%;
+}
+
+.arrow-left,
+.arrow-right {
+  display: inline-block;;
+}
+
+.mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.67);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mask.on {
+  opacity: 1;
+  animation: fadeIn 0.4s linear;
+  pointer-events: auto;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.dialog {
+  position: absolute;
+  left: calc(50% - 17em);
+  top: calc(50% - 8em);
+  width: 30em;
+  padding: 2em;
+  border-radius: 0.5em;
+  background-color: #ffffff;
+  text-align: center;
+  opacity: 0;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+.mask.on .dialog {
+  animation: bounce 0.8s linear forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes bounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+  60% {
+    transform: scale(0.85);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  90% {
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.dialog h2 {
+  margin-top: 0;
+  font-weight: 200;
+}
+
+.dialog form {
+  margin-top: 1.6em;
+}
+
+.dialog input[type=email] {
+  border: 2px solid rgba(0,0,0,0.2);
+  padding: 13px 10px;
+}
+
+/* Footer stuff */
+
+footer ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+footer li:first-child {
+  margin-right: 16px;
+}
+
+footer a {
+  color: #999;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: rgba(153, 153, 153, 0.7);
+}

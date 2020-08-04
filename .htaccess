@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^orl.ink [NC,OR]
+RewriteCond %{HTTP_HOST} ^www.orl.ink [NC]
+RewriteRule ^(.*)$ https://urlor.co/$1 [L,R=301,NC]

@@ -1,0 +1,8 @@
+.env
+openresty
+sql
+vendor
+node_modules
+storage/debugbar
+Dockerfile
+docker-compose.yml

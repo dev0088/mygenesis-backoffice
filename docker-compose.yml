@@ -25,10 +25,10 @@ services:
 
   # PHP Service
   app:
-    depends_on:
-      - db
-    links:
-      - db:mygenesis_mysql
+    # depends_on:
+    #   - db
+    # links:
+    #   - db:mygenesis_mysql
     build:
       context: .
       dockerfile: Dockerfile

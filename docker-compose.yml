@@ -1,7 +1,34 @@
 version: '3.5'
 services:
+  # MySQL Service
+  db:
+    image: mysql:5.7.22
+    container_name: mygenesis_mysql
+    hostname: mygenesis_mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    networks:
+      mygenesis-network:
+        aliases:
+          - mygenesis_mysql_network
+    environment:
+      MYSQL_DATABASE: forge
+      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_USER: ""
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - ./dbdata:/var/lib/mysql
+      - ./sql:/root/sql
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
+
   # PHP Service
   app:
+    depends_on:
+      - db
+    links:
+      - db:mygenesis_mysql
     build:
       context: .
       dockerfile: Dockerfile

@@ -1,5 +1,5 @@
 .env
-openresty
+dbdata
 sql
 vendor
 node_modules

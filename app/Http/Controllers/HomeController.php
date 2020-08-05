@@ -58,13 +58,10 @@ class HomeController extends Controller
         ];
         $client = new Client();
         $res = $client->request('GET', 'https://genesis.softy.pro/flux',$options);
-        echo $res->getStatusCode();
+        // echo $res->getStatusCode();
         // echo $res->getHeader('content-type');
         // $xml = simplexml_load_string($res->getBody());
         $xml = simplexml_load_string($res->getBody());
-        if ($xml->job){
-            echo "jobs are exist";
-        }
         $jobs_data = [];
         $ind = 0;
         foreach ($xml->job as $job) {

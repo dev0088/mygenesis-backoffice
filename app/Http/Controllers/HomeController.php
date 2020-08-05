@@ -60,7 +60,16 @@ class HomeController extends Controller
         $res = $client->request('GET', 'https://genesis.softy.pro/flux',$options);
         echo $res->getStatusCode();
         // echo $res->getHeader('content-type');
-        $xml = simplexml_load_string($res->getBody());
-        echo $xml->asXML();
+        // $xml = simplexml_load_string($res->getBody());
+        $index = 0;
+        $xml = new SimpleXMLElement($res->getBody());
+        foreach ($xml->jobs->job as $element) {
+          foreach($element as $key => $val) {
+           echo "{$key}: {$val}";
+           $jobs_data[$index][$key] = $val;
+          }
+          $index ++;
+        }
+        return $jobs_data;
     }
 }

@@ -67,7 +67,7 @@ class HomeController extends Controller
         }
         $jobs_data = [];
         foreach ($xml->job as $job) {
-          $jobs_data[]=[
+          $jobs_data[]={
             'date'=>(string)$job->date,
             'title'=>(string)$job->title,
             'id'=>(string)$job->id,
@@ -81,7 +81,7 @@ class HomeController extends Controller
             'country'=>(string)$job->country,
             'salary'=>(string)$job->salary,
             'rome'=>(string)$job->rome,
-          ];
+          };
         }
         var_dump($jobs_data);
         return $jobs_data;

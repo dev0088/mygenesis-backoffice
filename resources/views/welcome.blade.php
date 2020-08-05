@@ -119,6 +119,7 @@ $.ajax({
     processData: false,
     success: function (jobs) {
       alert(jobs.length);
+      alert(jobs[0].id);
       alert(jobs[0].id[0]);
       alert(jobs[0]['id'][0]);
       alert(jobs['0']['id']);

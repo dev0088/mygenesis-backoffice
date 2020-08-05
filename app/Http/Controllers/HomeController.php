@@ -98,7 +98,7 @@ class HomeController extends Controller
             'rome'=>(string)$job->rome,
           ];
         }
-        var_dump($jobs_data);
+        var_dump(json_encode($jobs_data));
         return json_encode($jobs_data);
     }
 }

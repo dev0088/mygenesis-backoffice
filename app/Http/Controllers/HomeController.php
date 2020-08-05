@@ -62,7 +62,7 @@ class HomeController extends Controller
         // echo $res->getHeader('content-type');
         // $xml = simplexml_load_string($res->getBody());
         $index = 0;
-        $xml = new SimpleXMLElement($res->getBody());
+        $xml = simplexml_load_string($res->getBody());
         foreach ($xml->jobs->job as $element) {
           foreach($element as $key => $val) {
            $jobs_data[$index][$key] = $val;

@@ -120,7 +120,6 @@ $.ajax({
     success: function (jobs) {
       alert(jobs.length);
       for (let i = 0; i < jobs.length; i++) {
-        alert(jobs[i]->date);
       }
     },
     error: function () {

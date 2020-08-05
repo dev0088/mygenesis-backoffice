@@ -119,9 +119,13 @@ $.ajax({
     processData: false,
     success: function (jobs) {
       alert(jobs.length);
-      for (let i = 0; i < jobs.length; i++) {
-        alert(jobs[i].id);
-      }
+      alert(jobs[0].id[0]);
+      alert(jobs[0]['id'][0]);
+      alert(jobs['0']['id']);
+      alert(jobs['0']['id'][0]);
+      // for (let i = 0; i < jobs.length; i++) {
+
+      // }
     },
     error: function () {
         alert("Getting jobs was failed.")

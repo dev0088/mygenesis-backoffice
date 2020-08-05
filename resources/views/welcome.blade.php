@@ -118,8 +118,8 @@ $.ajax({
     contentType: false,
     processData: false,
     success: function (jobs) {
-      foreach (jobs as $key=>$job) {
-        alert(job[$key]['date']);
+      for (let i = 0; i < jobs.length; i++) {
+        alert(job[i]['date']);
       }
     },
     error: function () {

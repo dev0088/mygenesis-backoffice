@@ -118,11 +118,9 @@ $.ajax({
     contentType: false,
     processData: false,
     success: function (jobs) {
-      alert(jobs.length);
-      alert(jobs[0][0]["id"]);
-      // for (let i = 0; i < jobs.length; i++) {
-
-      // }
+      $.each(jobs, function (key, val) {
+        alert(key +':'+ val);
+      });
     },
     error: function () {
         alert("Getting jobs was failed.")

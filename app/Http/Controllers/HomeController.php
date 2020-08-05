@@ -68,20 +68,6 @@ class HomeController extends Controller
         $jobs_data = [];
         $ind = 0;
         foreach ($xml->job as $job) {
-            // $jobs_data[$ind]['date'] = (string)$job->date;
-            // $jobs_data[$ind]['title'] = (string)$job->title;
-            // $jobs_data[$ind]['id'] = (string)$job->id;
-            // $jobs_data[$ind]['contract_type'] = (string)$job->contract_type;
-            // $jobs_data[$ind]['description'] = (string)$job->description;
-            // $jobs_data[$ind]['position'] = (string)$job->position;
-            // $jobs_data[$ind]['profile'] = (string)$job->profile;
-            // $jobs_data[$ind]['url'] = (string)$job->url;
-            // $jobs_data[$ind]['location'] = (string)$job->location;
-            // $jobs_data[$ind]['postcode'] = (string)$job->postcode;
-            // $jobs_data[$ind]['country'] = (string)$job->country;
-            // $jobs_data[$ind]['salary'] = (string)$job->salary;
-            // $jobs_data[$ind]['rome'] = (string)$job->rome;
-            // $ind++;
           $jobs_data[]=[
             'date'=>(string)$job->date,
             'title'=>(string)$job->title,
@@ -98,7 +84,6 @@ class HomeController extends Controller
             'rome'=>(string)$job->rome,
           ];
         }
-        var_dump(json_encode($jobs_data));
         return json_encode($jobs_data);
     }
 }

@@ -62,6 +62,9 @@ class HomeController extends Controller
         // echo $res->getHeader('content-type');
         // $xml = simplexml_load_string($res->getBody());
         $xml = simplexml_load_string($res->getBody());
+        if ($xml->job){
+            echo "jobs are exist";
+        }
         $jobs_data = [];
         foreach ($xml->job as $job) {
           $jobs_data[]=[

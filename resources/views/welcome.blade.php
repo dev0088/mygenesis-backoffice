@@ -118,7 +118,7 @@ $.ajax({
     contentType: false,
     processData: false,
     success: function (response) {
-        var jobs = response;
+        
     },
     error: function () {
         alert("Getting jobs was failed.")

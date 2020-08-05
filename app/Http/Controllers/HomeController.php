@@ -65,11 +65,11 @@ class HomeController extends Controller
         $xml = new SimpleXMLElement($res->getBody());
         foreach ($xml->jobs->job as $element) {
           foreach($element as $key => $val) {
-           echo "{$key}: {$val}";
            $jobs_data[$index][$key] = $val;
+           echo "jobs_data{$index}/{$key}: {$val}";
           }
           $index ++;
         }
-        return $jobs_data;
+        return true;
     }
 }

@@ -81,7 +81,7 @@ class HomeController extends Controller
             $jobs_data[$ind]['country'] = (string)$job->country;
             $jobs_data[$ind]['salary'] = (string)$job->salary;
             $jobs_data[$ind]['rome'] = (string)$job->rome;
-
+            $ind++;
           // $jobs_data[]=[
           //   'date'=>(string)$job->date,
           //   'title'=>(string)$job->title,

@@ -83,7 +83,6 @@ class HomeController extends Controller
             'rome'=>(string)$job->rome,
           ];
         }
-        echo $jobs_data;
         return $jobs_data;
     }
 }

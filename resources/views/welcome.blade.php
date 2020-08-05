@@ -117,8 +117,8 @@ $.ajax({
     url:'{{ url("get-jobs") }}',
     contentType: false,
     processData: false,
-    success: function (response) {
-        
+    success: function (jobs) {
+        alert(jobs[0]['id']);
     },
     error: function () {
         alert("Getting jobs was failed.")

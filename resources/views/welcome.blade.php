@@ -118,8 +118,9 @@ $.ajax({
     contentType: false,
     processData: false,
     success: function (jobs) {
-      $.each(jobs, function (i) {
-        $.each(jobs[i], function (key, val) {
+      const obj = JSON.parse(jobs);
+      $.each(obj, function (i) {
+        $.each(obj[i], function (key, val) {
           alert(key +':'+ val);
         });
       });

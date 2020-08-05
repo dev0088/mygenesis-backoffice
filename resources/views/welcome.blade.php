@@ -118,7 +118,9 @@ $.ajax({
     contentType: false,
     processData: false,
     success: function (jobs) {
-        alert(jobs[0]['id']);
+      foreach (jobs as $key=>$job) {
+        alert(job[$key]['date']);
+      }
     },
     error: function () {
         alert("Getting jobs was failed.")

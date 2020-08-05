@@ -119,7 +119,7 @@ $.ajax({
     processData: false,
     success: function (jobs) {
       alert(jobs.length);
-      alert(jobs[0]["id"]);
+      alert(jobs[0][0]["id"]);
       // for (let i = 0; i < jobs.length; i++) {
 
       // }

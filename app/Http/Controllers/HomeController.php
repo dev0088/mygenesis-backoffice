@@ -61,16 +61,26 @@ class HomeController extends Controller
         echo $res->getStatusCode();
         // echo $res->getHeader('content-type');
         // $xml = simplexml_load_string($res->getBody());
-        $index = 0;
         $xml = simplexml_load_string($res->getBody());
-        echo $xml;
-        foreach ($xml->jobs->job as $element) {
-          foreach($element as $key => $val) {
-           $jobs_data[$index][$key] = $val;
-           echo "jobs_data{$index}/{$key}: {$val}";
-          }
-          $index ++;
+        $jobs_data = [];
+        foreach ($xml->job as $job) {
+          $jobs_data[]=[
+            'date'=>(string)$job->date,
+            'title'=>(string)$job->title,
+            'id'=>(string)$job->id,
+            'contract_type'=>(string)$job->contract_type,
+            'description'=>(string)$job->description,
+            'position'=>(string)$job->position,
+            'profile'=>(string)$job->profile,
+            'url'=>(string)$job->url,
+            'location'=>(string)$job->location,
+            'postcode'=>(string)$job->postcode,
+            'country'=>(string)$job->country,
+            'salary'=>(string)$job->salary,
+            'rome'=>(string)$job->rome,
+          ];
         }
+        echo $jobs_data;
         return $jobs_data;
     }
 }

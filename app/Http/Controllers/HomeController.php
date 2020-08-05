@@ -63,6 +63,7 @@ class HomeController extends Controller
         // $xml = simplexml_load_string($res->getBody());
         $index = 0;
         $xml = simplexml_load_string($res->getBody());
+        echo $xml;
         foreach ($xml->jobs->job as $element) {
           foreach($element as $key => $val) {
            $jobs_data[$index][$key] = $val;
@@ -70,6 +71,6 @@ class HomeController extends Controller
           }
           $index ++;
         }
-        return true;
+        return $jobs_data;
     }
 }

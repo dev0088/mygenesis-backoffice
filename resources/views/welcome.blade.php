@@ -118,8 +118,10 @@ $.ajax({
     contentType: false,
     processData: false,
     success: function (jobs) {
-      $.each(jobs, function (key, val) {
-        alert(key +':'+ val);
+      $.each(jobs, function (i) {
+        $.each(jobs[i], function (key, val) {
+          alert(key +':'+ val);
+        });
       });
     },
     error: function () {

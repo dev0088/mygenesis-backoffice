@@ -118,8 +118,9 @@ $.ajax({
     contentType: false,
     processData: false,
     success: function (jobs) {
+      alert(jobs.length);
       for (let i = 0; i < jobs.length; i++) {
-        alert(job[i]['date']);
+        alert(jobs[i]['date']);
       }
     },
     error: function () {

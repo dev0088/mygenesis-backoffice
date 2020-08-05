@@ -119,9 +119,17 @@ $.ajax({
     processData: false,
     success: function (jobs) {
       const obj = JSON.parse(jobs);
+      var job_id = 0;
       $.each(obj, function (i) {
         $.each(obj[i], function (key, val) {
-          alert(key +':'+ val);
+          // alert(key +':'+ val);
+          //remove exist jobs data to create new jobs data
+          firebase.database().ref('jobs').remove();
+          //each job starts with 'DATE' parameter. At this time generate uniuque job id to divide each jobs
+          if(key == 'date'){
+            job_id = firebase.database().ref('jobs').push().key;
+          }
+          firebase.database().ref('jobs/'+job_id+'/'+key).set(val);
         });
       });
     },

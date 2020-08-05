@@ -59,7 +59,7 @@ class HomeController extends Controller
         $client = new Client();
         $res = $client->request('GET', 'https://genesis.softy.pro/flux',$options);
         echo $res->getStatusCode();
-        echo $res->getHeader('content-type');
+        // echo $res->getHeader('content-type');
         $xml = simplexml_load_string($res->getBody());
         echo $xml->asXML();
     }

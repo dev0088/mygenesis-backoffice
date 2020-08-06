@@ -124,7 +124,12 @@ $.ajax({
         $.each(obj[i], function (key, val) {
           // alert(key +':'+ val);
           //remove exist jobs data to create new jobs data
-          firebase.database().ref('jobs').remove();
+          firebase.database().ref('jobs').once('value', function(snapshot) {
+            var value = snapshot.val();
+            if(value){
+              firebase.database().ref('jobs').remove();
+            }
+          });
           //each job starts with 'DATE' parameter. At this time generate uniuque job id to divide each jobs
           if(key == 'date'){
             job_id = firebase.database().ref('jobs').push().key;

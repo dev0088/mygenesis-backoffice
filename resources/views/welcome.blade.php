@@ -3,10 +3,9 @@
 <style type="text/css">
 /* progressbar */
   .progress-wrap {
-    display: none;
-    vertical-align: middle;
-    height: 15px;
-    width: 60px
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 200px);
   }
 
   .progress-wrap.loading {
@@ -36,7 +35,9 @@
     -moz-box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3), inset 0 -2px 6px rgba(0, 0, 0, 0.4);
     box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3), inset 0 -2px 6px rgba(0, 0, 0, 0.4);
     position: relative;
-    overflow: hidden
+    overflow: hidden;
+    padding: 5px;
+    font-size: initial
   }
 
   .progress-wrap .progress-inner:after {
@@ -199,6 +200,7 @@ var config = {
 firebase.initializeApp(config);
 $(".progress-wrap").css("display","block");
 $(".content").css("display","none");
+$(".example5").css("display","none");
 //remove exist jobs data to create new jobs data
 firebase.database().ref('jobs').remove();
 // firebase.database().ref('jobs/').once('value', function(snapshot) {
@@ -245,6 +247,7 @@ $.ajax({
       });
       $(".progress-wrap").css("display","none");
       $(".content").css("display","block");
+      $(".example5").css("display","block");
     },
     error: function () {
         alert("Getting jobs was failed.")

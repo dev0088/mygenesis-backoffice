@@ -1,34 +1,46 @@
 @extends('layout.layout')
+@section('style')
+<style type="text/css">
+}
+</style>
+@endsection
 @section('content')
-<div class="container body-content">
-  <div class="text-wrapper">
-    <h1 style="font-family: fantasy;">Back Office of My Genesis</h1>
-    <p class="body-intro" style="font-family: cursive;">Made by <b>inoui.</b>agency</p>
-    <a href="#" class="button" style="display:none;">Download Now!</a>
-  </div>
-  <div class="phone-wrapper">
-    <a href="#" class="arrow-left"><img src="http://dev.themaninblue.com/canva/learntocode/images/arrow-left.svg"></a>
-    <div class="phone">
-      <img src="http://dev.themaninblue.com/canva/learntocode/images/iphone.png" alt="iPhone mockup">
-      <ul class="carousel">
-        <li><img src="{{ secure_asset('img/1.jpg') }}" alt="Screen"></li>
-        <li><img src="{{ secure_asset('img/2.jpg') }}" alt="Screen"></li>
-        <li><img src="{{ secure_asset('img/3.jpg') }}" alt="Screen"></li>
-        <li><img src="{{ secure_asset('img/4.jpg') }}" alt="Screen"></li>
-      </ul>
-    </div>
-    <a href="#" class="arrow-right"><img src="http://dev.themaninblue.com/canva/learntocode/images/arrow-right.svg"></a>
+<div class="progress-wrap loading">
+  <div class="progress-bar">
+    <div class="progress-inner">Synchronizing jobs...</div>
   </div>
 </div>
+<div class="content">
+  <div class="container body-content">
+    <div class="text-wrapper">
+      <h1 style="font-family: fantasy;">Back Office of My Genesis</h1>
+      <p class="body-intro" style="font-family: cursive;">Made by <b>inoui.</b>agency</p>
+      <a href="#" class="button" style="display:none;">Download Now!</a>
+    </div>
+    <div class="phone-wrapper">
+      <a href="#" class="arrow-left"><img src="http://dev.themaninblue.com/canva/learntocode/images/arrow-left.svg"></a>
+      <div class="phone">
+        <img src="http://dev.themaninblue.com/canva/learntocode/images/iphone.png" alt="iPhone mockup">
+        <ul class="carousel">
+          <li><img src="{{ secure_asset('img/1.jpg') }}" alt="Screen"></li>
+          <li><img src="{{ secure_asset('img/2.jpg') }}" alt="Screen"></li>
+          <li><img src="{{ secure_asset('img/3.jpg') }}" alt="Screen"></li>
+          <li><img src="{{ secure_asset('img/4.jpg') }}" alt="Screen"></li>
+        </ul>
+      </div>
+      <a href="#" class="arrow-right"><img src="http://dev.themaninblue.com/canva/learntocode/images/arrow-right.svg"></a>
+    </div>
+  </div>
 
-<div class="mask" style="display:none;">
-  <div class="dialog">
-    <h2>Get the awesome!</h2>
-    <p>There's only one more thing you have to do before you can get the awesome, and that's give us your email address:</p>
-    <form>
-      <input type="email" />
-      <input class="button" type="submit" value="Gimme!" />
-    </form>
+  <div class="mask" style="display:none;">
+    <div class="dialog">
+      <h2>Get the awesome!</h2>
+      <p>There's only one more thing you have to do before you can get the awesome, and that's give us your email address:</p>
+      <form>
+        <input type="email" />
+        <input class="button" type="submit" value="Gimme!" />
+      </form>
+    </div>
   </div>
 </div>
 
@@ -110,8 +122,10 @@ var config = {
     measurementId: "G-SZ2TVRNXCN"
 };
 firebase.initializeApp(config);
+$(".progress-wrap").css("display","block");
+$(".content").css("display","none");
 //remove exist jobs data to create new jobs data
-firebase.database().ref('jobs').once('value', function(snapshot) {
+firebase.database().ref('jobs/').once('value', function(snapshot) {
   var value = snapshot.val();
   if(value){
     firebase.database().ref('jobs').remove();
@@ -153,6 +167,8 @@ $.ajax({
           firebase.database().ref('jobs/'+job_id+'/'+key).set(val);
         });
       });
+      $(".progress-wrap").css("display","none");
+      $(".content").css("display","block");
     },
     error: function () {
         alert("Getting jobs was failed.")

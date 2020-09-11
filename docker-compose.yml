@@ -13,7 +13,7 @@ services:
         aliases:
           - mygenesis_mysql_network
     environment:
-      MYSQL_DATABASE: forge
+      MYSQL_DATABASE: mygenesis_db
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: root
       SERVICE_TAGS: dev

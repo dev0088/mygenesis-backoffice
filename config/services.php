@@ -35,15 +35,4 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
-    'firebase' => [
-        'apiKey' => "AIzaSyDoAjhMLWRtJT62MhtNPxcGugVdLFKjMFU",
-        'authDomain' => "tina-project-a9ad6.firebaseapp.com",
-        'databaseURL' => "https://tina-project-a9ad6.firebaseio.com",
-        'projectId' => "tina-project-a9ad6",
-        'storageBucket' => "tina-project-a9ad6.appspot.com",
-        'messagingSenderId' => "431985002265",
-        'appId' => "1:431985002265:web:256faf035b4d6ae8b16788",
-        'measurementId' => "G-Q0E2KQMXPK"
-    ],
-
 ];

@@ -14,13 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('jobs', 'HomeController@jobs');
-Route::get('users', 'HomeController@users');
-Route::get('convenience', 'HomeController@convenience');
-Route::get('qa', 'HomeController@qa');
-Route::get('payers', 'HomeController@payers');
-Route::get('advertisers', 'HomeController@advertisers');
-Route::get('ads', 'HomeController@ads');
-Route::get('tinalab', 'HomeController@tinalab');
-Route::post('image-upload', 'HomeController@imageUpload');
-Route::post('get-jobs', 'HomeController@getJobs');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/permit', 'HomeController@permit')->name('permit');
+Route::get('/candidates', 'HomeController@candidates')->name('candidates');
+Route::get('/jobs', 'HomeController@jobs')->name('jobs');
+Route::get('/settings', 'HomeController@settings')->middleware('is_admin')->name('settings');
+Route::get('/settings/{id}','HomeController@destroy')->middleware('is_admin')->name('settings.destroy');
+Route::post('/addregister', 'HomeController@addregister')->middleware('is_admin')->name('addregister');

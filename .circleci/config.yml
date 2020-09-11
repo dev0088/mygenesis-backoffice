@@ -7,7 +7,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "ef:be:79:65:ef:a1:af:7b:79:98:2d:48:f9:34:0f:65"
+            - "9c:4a:e0:de:4a:39:6a:82:08:b0:31:76:dd:3a:8d:f1"
       - run: 
           name: Deploy My Genesis server
           command: |

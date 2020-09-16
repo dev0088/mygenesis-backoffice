@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
-
+use GuzzleHttp\Client;
 
 class HomeController extends Controller
 {
@@ -65,5 +65,42 @@ class HomeController extends Controller
     {
     	$setting=DB::table('users')->where('id',$id)->delete();    	
     	return Redirect::route('settings');
-    }   
+    }
+    public function getJobs()
+    {
+        ini_set('max_execution_time', 0);
+        $options = [
+            'http_errors' => true,
+            'force_ip_resolve' => 'v4',
+            'connect_timeout' => 500,
+            'read_timeout' => 500,
+            'timeout' => 500,
+        ];
+        $client = new Client();
+        $res = $client->request('GET', 'https://genesis.softy.pro/flux',$options);
+        // echo $res->getStatusCode();
+        // echo $res->getHeader('content-type');
+        // $xml = simplexml_load_string($res->getBody());
+        $xml = simplexml_load_string($res->getBody());
+        $jobs_data = [];
+        $ind = 0;
+        foreach ($xml->job as $job) {
+          $jobs_data[]=[
+            'date'=>(string)$job->date,
+            'title'=>(string)$job->title,
+            'id'=>(string)$job->id,
+            'contract_type'=>(string)$job->contract_type,
+            'description'=>(string)$job->description,
+            'position'=>(string)$job->position,
+            'profile'=>(string)$job->profile,
+            'url'=>(string)$job->url,
+            'location'=>(string)$job->location,
+            'postcode'=>(string)$job->postcode,
+            'country'=>(string)$job->country,
+            'salary'=>(string)$job->salary,
+            'rome'=>(string)$job->rome,
+          ];
+        }
+        return json_encode($jobs_data);
+    }
 }

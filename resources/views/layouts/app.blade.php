@@ -92,8 +92,4 @@
     </div>
 </body>
 </html>
-<script>
-$('#navbar-home').on("click",function(){
-  $('#navbar-home').addClass('navitem-active');
-})
-</script>
+@yield('script')

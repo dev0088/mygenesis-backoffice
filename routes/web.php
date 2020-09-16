@@ -24,3 +24,4 @@ Route::get('/jobs', 'HomeController@jobs')->name('jobs');
 Route::get('/settings', 'HomeController@settings')->middleware('is_admin')->name('settings');
 Route::get('/settings/{id}','HomeController@destroy')->middleware('is_admin')->name('settings.destroy');
 Route::post('/addregister', 'HomeController@addregister')->middleware('is_admin')->name('addregister');
+Route::post('/get-jobs', 'HomeController@getJobs')->name('getjobs');

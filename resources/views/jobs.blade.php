@@ -71,6 +71,7 @@ $.ajax({
                 country: '',
                 salary: '',
                 rome: '',
+                experience: '',
             }, function(error) {
                 if(error)
                     alert(error);

@@ -99,6 +99,7 @@ class HomeController extends Controller
             'country'=>(string)$job->country,
             'salary'=>(string)$job->salary,
             'rome'=>(string)$job->rome,
+            'experience'=>(string)$job->experience,
           ];
         }
         return json_encode($jobs_data);

@@ -50,6 +50,12 @@
     top: 65px;
     font-size: 30px;
 }
+td i {
+    color:deepskyblue;
+}
+table {
+    background-color: white!important;
+}
 @import url(https://fonts.googleapis.com/css?family=Nunito);/*!
  * Bootstrap v4.1.2 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors

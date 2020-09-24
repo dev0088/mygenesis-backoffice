@@ -57,9 +57,9 @@
                                     {{ __("S'identifier") }}
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <!-- <a class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __("Mot de passe oublié?") }}
-                                </a>
+                                </a> -->
                             </div>
                         </div>
                     </form>
